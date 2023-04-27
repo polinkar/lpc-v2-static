@@ -13,6 +13,19 @@ const smoothScroll = () => {
 };
 smoothScroll();
 
+gsap.fromTo(
+  ".loader__line--accent",
+  {
+    width: "0",
+  },
+  {
+    width: "100%",
+    duration: 4,
+    ease: "circ.out",
+    delay: 0.2,
+  }
+);
+
 // Images Loaded
 const main = document.querySelector(".main");
 
@@ -98,19 +111,15 @@ imgLoad.on("done", (instance) => {
   });
 
   introTimeline
-
     // Loader
-    .fromTo(
-      ".loader",
+    .to(
+      ".loader__line--accent",
+
       {
-        x: "0",
-      },
-      {
-        x: "-200%",
+        width: "100%",
         duration: 4,
         ease: "circ.out",
         delay: 0.2,
-        display: "none",
       }
     )
     .fromTo(
@@ -121,12 +130,22 @@ imgLoad.on("done", (instance) => {
       {
         opacity: 0,
 
-        duration: 4,
+        duration: 0.5,
         ease: "circ.out",
         delay: 0.2,
         display: "none",
+      }
+    )
+    .fromTo(
+      ".header",
+      {
+        opacity: 0,
+        duration: 2,
+        ease: "circ.out",
       },
-      "<+0.3"
+      {
+        opacity: 1,
+      }
     )
     .fromTo(
       ".hero__image-container--1",
@@ -180,58 +199,47 @@ imgLoad.on("done", (instance) => {
         duration: 1.4,
       },
       "<0.2"
-    )
-
-    // .to(".hero__word--lpc-is", {
-    //   opacity: 0,
-    //   x: "-100vh",
-    //   ease: "circ.out",
-    //   duration: 3,
-    // })
-    // .fromTo(
-    //   ".hero__word--sustainable",
-    //   {
-    //     opacity: 0,
-    //     x: "100%",
-    //   },
-    //   {
-    //     opacity: 1,
-    //     x: 0,
-    //   }
-    // )
-    // .fromTo(
-    //   ".hero__word--producer",
-    //   {
-    //     opacity: 0,
-    //     x: "100%",
-    //   },
-    //   {
-    //     opacity: 1,
-    //     x: 0,
-    //   }
-    // )
-    // .fromTo(
-    //   ".hero__word--exporter",
-    //   {
-    //     opacity: 0,
-    //     x: "100%",
-    //   },
-    //   {
-    //     opacity: 1,
-    //     x: 0,
-    //   }
-    // )
-    .fromTo(
-      ".header",
-      {
-        opacity: 0,
-        duration: 2,
-        ease: "circ.out",
-      },
-      {
-        opacity: 1,
-      }
     );
+
+  // .to(".hero__word--lpc-is", {
+  //   opacity: 0,
+  //   x: "-100vh",
+  //   ease: "circ.out",
+  //   duration: 3,
+  // })
+  // .fromTo(
+  //   ".hero__word--sustainable",
+  //   {
+  //     opacity: 0,
+  //     x: "100%",
+  //   },
+  //   {
+  //     opacity: 1,
+  //     x: 0,
+  //   }
+  // )
+  // .fromTo(
+  //   ".hero__word--producer",
+  //   {
+  //     opacity: 0,
+  //     x: "100%",
+  //   },
+  //   {
+  //     opacity: 1,
+  //     x: 0,
+  //   }
+  // )
+  // .fromTo(
+  //   ".hero__word--exporter",
+  //   {
+  //     opacity: 0,
+  //     x: "100%",
+  //   },
+  //   {
+  //     opacity: 1,
+  //     x: 0,
+  //   }
+  // );
 
   // Whole Page
 
@@ -306,21 +314,4 @@ imgLoad.on("done", (instance) => {
       },
     }
   );
-
-  // Click Events
-
-  sustainable.addEventListener("click", () => {
-    // const time = heroTimeline.getTweensOf(green)[0].endTime() + 0.5; // subtract 0.1 seconds as an offset
-    // console.log(heroTimeline);
-    // console.log(heroTimeline.labels);
-    // heroTimeline.play("start");
-    heroTimeline.tweenFromTo(0, "greenTimeline");
-  });
-
-  producer.addEventListener("click", () => {
-    heroTimeline.tweenFromTo("greenTimeline", "blueTimeline");
-  });
-  trader.addEventListener("click", () => {
-    heroTimeline.tweenFromTo("blueTimeline", "earthTimeline");
-  });
 });

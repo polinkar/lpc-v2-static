@@ -191,9 +191,31 @@ h1 {
   min-height: 100vh;
   min-height: 100svh;
   width: 100%;
-  background: $white;
+  background: $gray;
   overflow: hidden;
-  transform: scale(2);
+  display: flex;
+  align-items: center;
+  // transform: scale(2);
+
+  &__lines {
+    position: relative;
+    width: 100%;
+  }
+
+  &__line {
+    position: absolute;
+    height: 2px;
+
+    &--accent {
+      background-color: $accent;
+      width: 100vw;
+    }
+
+    &--white {
+      background-color: $white;
+      width: 100vw;
+    }
+  }
 }
 
 a {
