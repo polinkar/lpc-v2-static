@@ -73,7 +73,7 @@ body {
   font-family: "Sofia Pro";
   font-weight: 300;
   background-color: $gray;
-  // overflow: hidden;
+  overflow: hidden;
   color: $black;
 }
 
@@ -191,7 +191,7 @@ h1 {
   min-height: 100vh;
   min-height: 100svh;
   width: 100%;
-  background: $primary;
+  background: $white;
   overflow: hidden;
   transform: scale(2);
 }
@@ -212,31 +212,27 @@ a {
     top: -200px;
   }
 
-  &__container {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    justify-content: center;
-  }
+  // &__container {
+  //   display: grid;
+  //   // align-items: center;
+  //   // grid-template-columns: 2fr 3fr;
+  //   // justify-content: center;
+  // }
 
   &__text-container {
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
     color: $primary;
   }
 
   &__word {
-    cursor: pointer;
+    opacity: 1;
   }
 
-  // &__lpc-is {
-  //   opacity: 0;
-  //   font-weight: 500;
+  // &__scene {
+  //   margin-left: 250px;
+  //   height: 400px;
   // }
-
-  &__scene {
-    margin-left: 250px;
-    height: 400px;
-  }
 }
 
 .spheres {

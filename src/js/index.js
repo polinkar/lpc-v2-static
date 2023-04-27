@@ -37,17 +37,6 @@ imgLoad.on("done", (instance) => {
     onComplete: () => {
       // Make sure the user can't scroll during the observer scene
       document.querySelector("body").style.overflowY = "visible";
-
-      // Hover
-      accentText.forEach((text) => {
-        const accentTextHover = gsap.to(text, {
-          paused: true,
-          color: "#62b316",
-          duration: 0.3,
-        });
-        text.addEventListener("mouseenter", () => accentTextHover.play());
-        text.addEventListener("mouseleave", () => accentTextHover.reverse());
-      });
     },
   });
 
@@ -114,15 +103,50 @@ imgLoad.on("done", (instance) => {
     .fromTo(
       ".loader",
       {
+        x: "0",
+      },
+      {
+        x: "-200%",
+        duration: 4,
+        ease: "circ.out",
+        delay: 0.2,
+        display: "none",
+      }
+    )
+    .fromTo(
+      ".loader",
+      {
         opacity: 1,
       },
       {
         opacity: 0,
 
-        duration: 2,
+        duration: 4,
         ease: "circ.out",
         delay: 0.2,
         display: "none",
+      },
+      "<+0.3"
+    )
+    .fromTo(
+      ".hero__heading",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+      },
+      "<0.6"
+    )
+    .fromTo(
+      ".header",
+      {
+        opacity: 0,
+        duration: 2,
+        ease: "circ.out",
+      },
+      {
+        opacity: 1,
       }
     );
 

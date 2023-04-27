@@ -90,6 +90,7 @@ body {
   font-family: "Sofia Pro";
   font-weight: 300;
   background-color: #ececec;
+  overflow: hidden;
   color: #1e1b18; }
 
 .boxed {
@@ -167,7 +168,7 @@ h1 {
   min-height: 100vh;
   min-height: 100svh;
   width: 100%;
-  background: #004fa3;
+  background: #fff;
   overflow: hidden;
   transform: scale(2); }
 
@@ -182,19 +183,10 @@ a {
     position: absolute;
     left: -50%;
     top: -200px; }
-  .hero__container {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    justify-content: center; }
   .hero__text-container {
-    display: flex;
-    align-items: center;
     color: #004fa3; }
   .hero__word {
-    cursor: pointer; }
-  .hero__scene {
-    margin-left: 250px;
-    height: 400px; }
+    opacity: 1; }
 
 .spheres__image-container {
   position: absolute;
