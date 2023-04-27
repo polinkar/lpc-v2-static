@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.049" height="11.076" viewBox="0 0 24.049 11.076">
+  <g id="ic-arrow" transform="translate(0.18 0.65)">
+    <path id="Line_3" data-name="Line 3" d="M22,.65H0A.65.65,0,0,1-.65,0,.65.65,0,0,1,0-.65H22a.65.65,0,0,1,.65.65A.65.65,0,0,1,22,.65Z" transform="translate(0.47 4.781)" fill="#004fa3"/>
+    <path id="Line_4" data-name="Line 4" d="M0,5.538a.648.648,0,0,1-.46-.19.65.65,0,0,1,0-.919L4.429-.46a.65.65,0,0,1,.919,0,.65.65,0,0,1,0,.919L.46,5.348A.648.648,0,0,1,0,5.538Z" transform="translate(23.219 0) rotate(90)" fill="#004fa3"/>
+    <path id="Line_5" data-name="Line 5" d="M4.888,5.538a.648.648,0,0,1-.46-.19L-.46.46a.65.65,0,0,1,0-.919.65.65,0,0,1,.919,0L5.348,4.429a.65.65,0,0,1-.46,1.11Z" transform="translate(23.219 4.888) rotate(90)" fill="#004fa3"/>
+  </g>
+</svg>
