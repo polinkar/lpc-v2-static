@@ -129,15 +129,98 @@ imgLoad.on("done", (instance) => {
       "<+0.3"
     )
     .fromTo(
-      ".hero__heading",
+      ".hero__image-container--1",
+      { opacity: 0, clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)" },
+      {
+        opacity: 1,
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        ease: "circ.out",
+        // duration: 2,
+      },
+      "<0.2"
+    )
+    .fromTo(
+      ".hero__line",
       {
         opacity: 0,
+        x: "100vw",
       },
       {
         opacity: 1,
+        x: 0,
+        ease: "circ.out",
+        duration: 1.4,
+        stagger: 0.2,
       },
-      "<0.6"
+      "<"
     )
+    .fromTo(
+      ".hero__image-container--1",
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      },
+      {
+        clipPath: "polygon(0% 10%, 100% 10%, 100% 90%, 0% 90%)",
+        ease: "back.out(1.7)",
+        // duration: 2,
+      },
+      "<0.5"
+    )
+
+    .fromTo(
+      ".hero__word--lpc-is",
+      {
+        // opacity: 0,
+        x: "100vw",
+      },
+      {
+        // opacity: 1,
+        x: 0,
+        ease: "back.out(0.7)",
+        duration: 1.4,
+      },
+      "<0.2"
+    )
+
+    // .to(".hero__word--lpc-is", {
+    //   opacity: 0,
+    //   x: "-100vh",
+    //   ease: "circ.out",
+    //   duration: 3,
+    // })
+    // .fromTo(
+    //   ".hero__word--sustainable",
+    //   {
+    //     opacity: 0,
+    //     x: "100%",
+    //   },
+    //   {
+    //     opacity: 1,
+    //     x: 0,
+    //   }
+    // )
+    // .fromTo(
+    //   ".hero__word--producer",
+    //   {
+    //     opacity: 0,
+    //     x: "100%",
+    //   },
+    //   {
+    //     opacity: 1,
+    //     x: 0,
+    //   }
+    // )
+    // .fromTo(
+    //   ".hero__word--exporter",
+    //   {
+    //     opacity: 0,
+    //     x: "100%",
+    //   },
+    //   {
+    //     opacity: 1,
+    //     x: 0,
+    //   }
+    // )
     .fromTo(
       ".header",
       {
@@ -151,26 +234,6 @@ imgLoad.on("done", (instance) => {
     );
 
   // Whole Page
-  // Mouse Move Gradient Glow
-  window.addEventListener("mousemove", (e) => {
-    // Gradient
-    gsap.to(".gradient-bg", {
-      x: e.clientX,
-
-      duration: 5,
-      ease: "expo.out",
-    });
-  });
-
-  // Scroll
-  window.addEventListener("scroll", (e) => {
-    // Gradient
-    gsap.to(".gradient-bg", {
-      y: window.scrollY,
-      duration: 5,
-      ease: "expo.out",
-    });
-  });
 
   // Entrances Gradient Glow
 
