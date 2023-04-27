@@ -244,14 +244,9 @@ a {
   position: relative;
 
   &__heading {
-    // position: relative;
-    // display: flex;
-    // flex-direction: column;
     position: absolute;
     left: 0;
-
     width: 100%;
-    // min-width: 1500px;
   }
 
   &__container {
@@ -259,15 +254,9 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    // display: grid;
-    // align-items: center;
-    // grid-template-columns: 2fr 3fr;
-    // justify-content: center;
   }
 
   &__text-container {
-    // display: flex;
-    // align-items: center;
     color: $primary;
     z-index: 3;
   }
@@ -280,10 +269,8 @@ a {
 
     &--lpc-is {
       z-index: 200;
-      bottom: 60px;
+      bottom: 15vh;
       right: -35%;
-      // padding-right: 200px;
-      // padding-left: 40px;
       padding: 8px 200px 8px 40px;
     }
 
@@ -300,6 +287,26 @@ a {
     &--exporter {
       bottom: 50%;
       right: 50%;
+    }
+  }
+
+  // &__elements {
+  //   position: relative;
+  //   width: 100%;
+  // }
+
+  &__element-container {
+    position: absolute;
+    z-index: 5;
+
+    &--molecule {
+      top: 0;
+      left: 45vw;
+      width: 100%;
+    }
+
+    &--sphere {
+      bottom: 0;
     }
   }
 
@@ -348,109 +355,44 @@ a {
       height: 25px;
       width: 160px;
     }
+
+    &--5 {
+      left: 45vw;
+      top: 10vh;
+      background-color: $white;
+      height: 2px;
+      width: 280px;
+    }
+
+    &--6 {
+      left: 35vw;
+      top: 20vh;
+      background-color: $accent;
+      height: 15px;
+      width: 280px;
+    }
+
+    &--7 {
+      left: 50vw;
+      top: 25vh;
+      background-color: $accent;
+      height: 3px;
+      width: 320px;
+    }
+
+    &--8 {
+      left: 25vw;
+      top: 35vh;
+      background-color: $accent;
+      height: 80px;
+      width: 280px;
+    }
   }
 
-  // &__scene {
-  //   position: relative;
-  // }
-
   &__image-container {
-    // position: absolute;
     position: relative;
     z-index: 1;
     width: 100%;
-    // bottom: 0;
-    // top: 0;
-    // inset: 0;
-    // margin: auto;
-
-    // &--1 {
-    //   clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
-    // }
-  }
-
-  // &__scene {
-  //   margin-left: 250px;
-  //   height: 400px;
-  // }
-}
-
-.spheres {
-  &__image-container {
-    position: absolute;
-    max-width: 400px;
-
-    &--earth {
-      z-index: 3;
-      position: relative;
-    }
-
-    &--blue {
-      z-index: 1;
-      // transform: translateX(140px);
-    }
-    &--green {
-      z-index: 2;
-      // transform: translateX(85px);
-    }
-  }
-}
-
-.spheres-small {
-  &__image-container {
-    position: absolute;
-    max-width: 100px;
-    // top: 0;
-
-    &--producer-1 {
-      max-width: 50px;
-      top: 80%;
-      left: 50%;
-    }
-
-    &--producer-2 {
-      max-width: 25px;
-      top: 70%;
-      left: 80%;
-    }
-
-    &--producer-3 {
-      max-width: 60px;
-      left: 70%;
-    }
-
-    &--trader-1 {
-      max-width: 45px;
-      top: 20%;
-      left: 70%;
-    }
-
-    &--trader-2 {
-      max-width: 100px;
-      left: 55%;
-      top: 40%;
-      // bottom: 50%;
-    }
-  }
-}
-
-// Circular
-.circular-shape {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  margin: auto;
-  width: 380px;
-  height: 380px;
-  overflow: hidden;
-  border-radius: 380px;
-
-  .circular-shape__video {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
   }
 }
 
