@@ -46,12 +46,12 @@ $black: #1e1b18;
 $white: #fff;
 $primary: #004fa3;
 $accent: #62b316;
-// $gray: #a1afc1;
 $gray: #ececec;
 $transparent: transparent;
 
 $box: 1440px;
 
+// MIXINS
 // Remove borders, outlines & backgrounds
 @mixin clear-styles {
   border: none;
@@ -68,13 +68,16 @@ $box: 1440px;
   -moz-osx-font-smoothing: grayscale;
 }
 
+// GLOBAL
 body {
   font-family: "Sofia Pro";
+  font-weight: 300;
   background-color: $gray;
   // overflow: hidden;
   color: $black;
 }
 
+// UTILITY CLASSES
 .boxed {
   max-width: $box;
 }
@@ -82,62 +85,24 @@ body {
 .centered {
   margin: auto;
 }
-
+// TYPOGRAPHY
 .heading {
-  font-size: 75px;
-  font-weight: 500;
+  font-size: 70px;
+  font-weight: 300;
   line-height: 1;
-}
-
-.heading {
-  display: flex;
-  // display: grid;
-  // grid-template-columns: max-content max-content max-content;
-  align-items: end;
-  // position: relative;
-  z-index: 1;
-  max-width: $box;
-  margin: auto;
-
-  &__text {
-    position: relative;
-    width: fit-content;
-    // flex-grow: 1;
-    // flex-basis: 100%;
-
-    &--accent {
-      color: $accent;
-    }
-  }
-
-  &__line {
-    position: absolute;
-    background-color: $primary;
-    height: 2px;
-    margin-bottom: 8px;
-
-    // &--left {
-    //   width: calc((100vw #{$box}) / 2);
-    //   right: 0;
-    // }
-
-    &--right {
-      width: calc((100vw - #{$box}) / 2);
-      left: -20px;
-    }
-  }
+  text-transform: lowercase;
 }
 
 .button {
   @include clear-styles;
   text-decoration: none;
-
+  text-transform: uppercase;
   position: relative;
   margin-top: 32px;
   padding: 14px 25px;
   border-radius: 200px;
   background: $white;
-  font-size: 14px;
+  font-size: 13px;
   pointer-events: auto;
   cursor: pointer;
   transition: ease 0.3s;
@@ -160,11 +125,7 @@ body {
   align-items: center;
 
   &:hover {
-    span {
-      color: $white;
-    }
     span:after {
-      color: $white;
       transform: translateX(5px);
     }
   }
@@ -183,43 +144,43 @@ body {
   &:after {
     @include icon("\e900");
     font-size: 12px;
-    color: $primary;
+    color: $black;
     transition: ease 0.3s;
   }
 }
 
-.button::before {
-  content: "";
-  background: $black;
-  height: 0;
-  left: -100%;
-  border-radius: 50%;
-  transform: translate(68%, 0) scale3d(0, 0, 0);
-}
+// .button::before {
+//   content: "";
+//   background: $black;
+//   height: 0;
+//   left: -100%;
+//   border-radius: 50%;
+//   transform: translate(68%, 0) scale3d(0, 0, 0);
+// }
 
-.button:hover::before {
-  transform: translate(0, 0) scale3d(1, 1, 1);
-  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
-}
+// .button:hover::before {
+//   transform: translate(0, 0) scale3d(1, 1, 1);
+//   transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+// }
 
-.button::after {
-  content: "";
-  background: $primary;
-  transform: translate(-110%, 0);
-  border-radius: 0 25px 25px 0;
-  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
-}
+// .button::after {
+//   content: "";
+//   background: $primary;
+//   transform: translate(-110%, 0);
+//   border-radius: 0 25px 25px 0;
+//   transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+// }
 
-.button:hover::after {
-  transform: translate(0, 0);
-  transition-duration: 0.2s;
-  transition-timing-function: linear;
-}
+// .button:hover::after {
+//   transform: translate(0, 0);
+//   transition-duration: 0.2s;
+//   transition-timing-function: linear;
+// }
 
 h1 {
   font-size: 75px;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 300;
   will-change: transform;
 }
 
@@ -267,10 +228,10 @@ a {
     cursor: pointer;
   }
 
-  &__lpc-is {
-    opacity: 0;
-    font-weight: 500;
-  }
+  // &__lpc-is {
+  //   opacity: 0;
+  //   font-weight: 500;
+  // }
 
   &__scene {
     margin-left: 250px;
@@ -357,177 +318,22 @@ a {
   }
 }
 
-.particles-spiral {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: url("../../assets/img/particles-spiral.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 70% 150px;
-}
-
-// Bullets
-.capsules {
-  &__container {
-    display: flex;
-    justify-content: center;
-    gap: 70px;
-    max-width: 1800px;
-    padding: 0 80px;
-  }
-}
-
-.capsule {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  border: solid $white 1px;
-  border-radius: 200px;
-  padding: 16px 32px;
-
-  &__text-container {
-    display: flex;
-    align-items: start;
-  }
-
-  &__number {
-    font-size: 70px;
-    font-weight: 300;
-    line-height: 1;
-  }
-
-  &__text-up {
-    font-size: 24px;
-  }
-
-  &__inner-capsule {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    align-items: center;
-    gap: 8px;
-    padding: 8px;
-    border-radius: 200px;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 0, 0, 0),
-      rgba(255, 255, 255, 0.8)
-    );
-    box-shadow: inset 23px 3px 5px rgba($white, 0.4);
-  }
-
-  &__image-container {
-    flex-shrink: 1;
-  }
-
-  &__image {
-    border-radius: 200px;
-    object-fit: cover;
-    aspect-ratio: 3/2;
-  }
-
-  &__description {
-    font-size: 16px;
-    flex-grow: 1;
-    padding-left: 4px;
-  }
-}
-
 // Sustainability
 .sustainability {
   position: relative;
   padding: 160px 0 80px;
-  background: url("../../assets/img/oil-splash.png");
-  background-repeat: no-repeat;
-  background-position: 110% 60%;
-
-  &__row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 36px;
-    padding: 80px 0;
-
-    &--2 .sustainability__text-container {
-      justify-self: end;
-    }
-
-    &--2 .sustainability__image-container {
-      order: 1;
-      transform: scaleX(-1);
-    }
-
-    &--2 .sustainability__text-container {
-      text-align: right;
-      align-items: end;
-    }
-  }
 
   &__heading {
     color: $primary;
   }
 
-  &__image-container {
-    position: relative;
-    z-index: 1;
-
-    &::before {
-      content: "";
-      z-index: -1;
-      background-color: #82c341;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      max-height: 340px;
-      border-radius: 200px;
-      transform: translateX(-32px);
-    }
-  }
-
-  &__image {
-    object-fit: cover;
-    width: 100%;
-    max-height: 340px;
-    border-radius: 200px;
-  }
-
-  &__text-container {
-    max-width: 450px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  &__subheading {
-    font-size: 40px;
-  }
-
   &__text {
     font-size: 20px;
-  }
-
-  &__particles-spiral {
-    background-size: contain;
-    background-position: 70% 100%;
-
-    &--1 {
-      background-position: 70% -30%;
-      transform: scaleX(-1);
-    }
-
-    &--2 {
-      background-position: 70% 100%;
-    }
   }
 }
 
 // Video
 .video {
-  background: url("../../assets/img/pattern-curved-lines.svg");
-  // background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right top;
   padding: 80px 0 160px;
 
   &__heading {
@@ -591,14 +397,14 @@ a {
   }
 
   &__post-title {
-    font-size: 30px;
+    font-size: 32px;
     line-height: 1;
     font-weight: 500;
     color: $black;
   }
 
   &__text {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   &__image {
@@ -622,10 +428,6 @@ a {
   position: relative;
   z-index: 2;
   margin: 80px auto 80px;
-  max-width: 1800px;
-  background: rgba($gray, 0.7);
-  box-shadow: rgba(255, 255, 255, 0.7) 0px 0px 58px;
-  border-radius: 20px;
 
   &__container {
     padding: 80px 0;
@@ -917,16 +719,16 @@ a {
   transform: scale3d(1, 1, 1);
 }
 
-.gradient-bg {
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(255, 255, 255, 0.7) 0%,
-    rgba(255, 255, 255, 0.7) 0%,
-    rgba(255, 255, 255, 0) 55%
-  );
-  left: -50%;
-  filter: blur(30px);
-  width: 1920px;
-  height: 1080px;
-  position: absolute;
-}
+// .gradient-bg {
+//   background: radial-gradient(
+//     circle at 50% 50%,
+//     rgba(255, 255, 255, 0.7) 0%,
+//     rgba(255, 255, 255, 0.7) 0%,
+//     rgba(255, 255, 255, 0) 55%
+//   );
+//   left: -50%;
+//   filter: blur(30px);
+//   width: 1920px;
+//   height: 1080px;
+//   position: absolute;
+// }
