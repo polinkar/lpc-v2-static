@@ -609,10 +609,41 @@ imgLoad.on("done", (instance) => {
       },
       "<0.2"
     )
+    // Elements 4 In
+    .fromTo(
+      ".hero__element-container-4",
+      {
+        opacity: 0,
+        x: "-100vh",
+      },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "expo.out",
+        duration: 2.5,
+        stagger: 0.3,
+      },
+      "<+0.2"
+    )
     .addLabel("scene4")
 
     // SCENE 4 - FINAL
-    // Lines 3 Out
+
+    // Elements 4 Out
+    .to(
+      ".hero__element-container-4",
+
+      {
+        opacity: 0,
+        y: "-50vh",
+        x: "100vh",
+        ease: "expo.in",
+        duration: 2.5,
+        stagger: 0.3,
+      },
+      "<+0.8"
+    )
+    // Lines 4 Out
     .to(".hero__line", {
       opacity: 0,
       x: "-100vw",
@@ -620,19 +651,7 @@ imgLoad.on("done", (instance) => {
       duration: 1.4,
       stagger: 0.2,
     })
-    // Elements 3 Out
-    // .to(
-    //   ".hero__element-container-4",
 
-    //   {
-    //     opacity: 0,
-    //     y: "100vh",
-    //     ease: "expo.in",
-    //     duration: 2.5,
-    //     stagger: 0.3,
-    //   },
-    //   "<+0.8"
-    // )
     // Image 3 Out
     .to(
       ".hero__image-container--4",

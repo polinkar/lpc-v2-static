@@ -367,6 +367,24 @@ a {
     }
   }
 
+  &__element-container-4 {
+    position: absolute;
+    z-index: 5;
+
+    &--clouds-1 {
+      top: -30vh;
+      left: 10vw;
+      width: 100%;
+      // max-width: 100px;
+    }
+    &--clouds-2 {
+      top: -30vh;
+      left: 45vw;
+      width: 100%;
+      // max-width: 100px;
+    }
+  }
+
   // &__lines {
   //   // display: flex;
   //   // gap: 20px;
@@ -461,6 +479,13 @@ a {
     &--2 {
       left: 35vw;
     }
+
+    // &--2 {
+    //   .hero__image {
+    //     position: absolute;
+    //     // left: 350px;
+    //   }
+    // }
 
     &--3 {
       left: -10vw;
