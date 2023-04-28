@@ -238,9 +238,11 @@ imgLoad.on("done", (instance) => {
         duration: 1.4,
       },
       "<0.2"
-    )
-    // SCENE 2
-    // Lines
+    );
+
+  // SCENE 2
+  // Lines
+  heroTimeline
     .to(".hero__line", {
       opacity: 0,
       x: "-100vw",
@@ -369,6 +371,7 @@ imgLoad.on("done", (instance) => {
       },
       "<+0.2"
     )
+    .addLabel("scene1")
 
     // SCENE 3
     // Lines
@@ -492,6 +495,7 @@ imgLoad.on("done", (instance) => {
       },
       "<+0.2"
     )
+    .addLabel("scene3")
 
     // SCENE 4
     // Lines 3 Out
@@ -597,7 +601,8 @@ imgLoad.on("done", (instance) => {
         duration: 1.4,
       },
       "<0.2"
-    );
+    )
+    .addLabel("scene4");
 
   // Whole Page
 
