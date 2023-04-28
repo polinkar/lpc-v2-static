@@ -659,7 +659,7 @@ imgLoad.on("done", (instance) => {
       "<0.2"
     );
 
-  // introTimeline.repeat(-1);
+  introTimeline.repeat(-1);
   // Whole Page
 
   // Entrances Gradient Glow
