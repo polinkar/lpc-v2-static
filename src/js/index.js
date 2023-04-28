@@ -75,43 +75,11 @@ imgLoad.on("done", (instance) => {
 
   intentObserver.disable();
 
-  // Intro
-  const introTimeline = gsap.timeline({
-    onUpdate: () => {
-      const progress = introTimeline.progress();
-      if (progress >= 0.7) {
-        // Enable observer at the right moment for better UX
-        intentObserver.enable();
-      }
-    },
-
-    onComplete: () => {
-      // Mouse Move
-      heroSection.addEventListener("mousemove", (e) => {
-        // Spheres
-        gsap.to(".spheres-small__image-container", {
-          x: -e.clientX / 50,
-          y: -(e.clientX / 75),
-          duration: 5,
-          ease: "expo.out",
-          stagger: 0.1,
-        });
-      });
-
-      // Scroll
-      window.addEventListener("scroll", (e) => {
-        // Spheres
-        gsap.to(".spheres-small__image-container", {
-          y: -window.scrollY / 2,
-          duration: 5,
-          ease: "expo.out",
-        });
-      });
-    },
+  // Loader
+  const loaderTimeline = gsap.timeline({
+    onComplete: () => introTimeline.play(),
   });
-
-  introTimeline
-    // Loader
+  loaderTimeline
     .to(
       ".loader__line--accent",
 
@@ -146,7 +114,46 @@ imgLoad.on("done", (instance) => {
       {
         opacity: 1,
       }
-    )
+    );
+
+  // Intro
+  const introTimeline = gsap.timeline({
+    paused: true,
+    onUpdate: () => {
+      const progress = introTimeline.progress();
+      if (progress >= 0.7) {
+        // Enable observer at the right moment for better UX
+        intentObserver.enable();
+      }
+    },
+
+    onComplete: () => {
+      // Mouse Move
+      heroSection.addEventListener("mousemove", (e) => {
+        // Spheres
+        gsap.to(".spheres-small__image-container", {
+          x: -e.clientX / 50,
+          y: -(e.clientX / 75),
+          duration: 5,
+          ease: "expo.out",
+          stagger: 0.1,
+        });
+      });
+
+      // Scroll
+      window.addEventListener("scroll", (e) => {
+        // Spheres
+        gsap.to(".spheres-small__image-container", {
+          y: -window.scrollY / 2,
+          duration: 5,
+          ease: "expo.out",
+        });
+      });
+    },
+  });
+
+  introTimeline
+
     // SCENE 1
     // Image Reveal
     .fromTo(
@@ -602,8 +609,57 @@ imgLoad.on("done", (instance) => {
       },
       "<0.2"
     )
-    .addLabel("scene4");
+    .addLabel("scene4")
 
+    // SCENE 4 - FINAL
+    // Lines 3 Out
+    .to(".hero__line", {
+      opacity: 0,
+      x: "-100vw",
+      ease: "circ.in",
+      duration: 1.4,
+      stagger: 0.2,
+    })
+    // Elements 3 Out
+    // .to(
+    //   ".hero__element-container-4",
+
+    //   {
+    //     opacity: 0,
+    //     y: "100vh",
+    //     ease: "expo.in",
+    //     duration: 2.5,
+    //     stagger: 0.3,
+    //   },
+    //   "<+0.8"
+    // )
+    // Image 3 Out
+    .to(
+      ".hero__image-container--4",
+
+      {
+        opacity: 0,
+        clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
+        ease: "circ.out",
+
+        // duration: 2,
+      },
+      "<0.2"
+    )
+    // Word 3 Out
+    .to(
+      ".hero__word--exporter",
+
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "back.in(0.7)",
+        duration: 1.4,
+      },
+      "<0.2"
+    );
+
+  introTimeline.repeat(-1);
   // Whole Page
 
   // Entrances Gradient Glow
