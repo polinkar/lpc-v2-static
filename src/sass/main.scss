@@ -314,7 +314,8 @@ a {
     }
 
     &--sphere {
-      bottom: 0;
+      bottom: 40vh;
+      left: -10vw;
     }
   }
 
@@ -414,13 +415,17 @@ a {
     color: $white;
   }
   &__row {
-    display:flex;
+    display: flex;
     margin-top: 60px;
     .lpc-pillars-item {
       padding: 30px 0 40px;
-      background-image: linear-gradient(90deg, rgba(255,255,255,.7), rgba(255,255,255,.3));
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+      );
       backdrop-filter: blur(30px);
-      transition: .3s ease;
+      transition: 0.3s ease;
       position: relative;
       a {
         color: $black;
@@ -428,29 +433,29 @@ a {
       &__image {
         width: fit-content;
         margin-left: auto;
-     }
-     &__title {
+      }
+      &__title {
         padding: 45px 20px 20px;
         font-weight: 400;
-     }
-     &__text {
+      }
+      &__text {
         padding: 0 20px 20px;
-     }
-     &::after {
-      @include icon("\e900");
-      font-size: 12px;
-      color: $black;
-      transition: ease 0.3s;
-      position: absolute;
-      right: 30px;
-     }
-     &:hover {
+      }
+      &::after {
+        @include icon("\e900");
+        font-size: 12px;
+        color: $black;
+        transition: ease 0.3s;
+        position: absolute;
+        right: 30px;
+      }
+      &:hover {
         background-color: $white;
         transform: translateY(-30px);
         &:after {
           margin-right: -10px;
         }
-     }
+      }
     }
   }
 }

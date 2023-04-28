@@ -174,6 +174,21 @@ imgLoad.on("done", (instance) => {
       "<"
     )
     .fromTo(
+      ".hero__element-container",
+      {
+        opacity: 0,
+        x: "100vw",
+      },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "expo.out",
+        duration: 2.5,
+        stagger: 0.3,
+      },
+      "<+0.2"
+    )
+    .fromTo(
       ".hero__image-container--1",
       {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
