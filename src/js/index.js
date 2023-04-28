@@ -238,11 +238,11 @@ imgLoad.on("done", (instance) => {
         duration: 1.4,
       },
       "<0.2"
-    );
+    )
 
-  // SCENE 2
-  // Lines
-  heroTimeline
+    // SCENE 2
+    // Lines
+
     .to(".hero__line", {
       opacity: 0,
       x: "-100vw",
