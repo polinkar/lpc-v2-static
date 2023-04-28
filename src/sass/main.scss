@@ -101,12 +101,32 @@ body {
 .centered {
   margin: auto;
 }
+
+.bottom-shadow {
+  box-shadow: 0px 20px 20px -5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  position: relative;
+}
+
+.intro-text {
+  max-width: 690px;
+}
+
+.white-bg {
+  background-color: $white;
+}
 // TYPOGRAPHY
 .heading {
   font-size: 70px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.04em;
+  margin-bottom: 20px;
+  &__text {
+    &--accent {
+      color: $accent;
+    }
+  }
 }
 
 .small-heading {
@@ -120,11 +140,12 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   position: relative;
-  margin-top: 32px;
+  // margin-top: 32px;
   padding: 14px 25px;
-  border-radius: 200px;
-  background: $white;
+  // border-radius: 200px;
+  // background: $white;
   font-size: 13px;
+  font-weight: 500;
   pointer-events: auto;
   cursor: pointer;
   transition: ease 0.3s;
@@ -200,9 +221,10 @@ body {
 // }
 
 h1 {
-  font-size: 75px;
+  font-size: 80px;
+  letter-spacing: -0.04em;
   line-height: 1;
-  font-weight: 300;
+  font-weight: 500;
   will-change: transform;
 }
 
@@ -455,7 +477,7 @@ a {
   }
   &__row {
     display: flex;
-    margin-top: 60px;
+    margin-top: 40px;
     .lpc-pillars-item {
       padding: 30px 0 40px;
       background-image: linear-gradient(
@@ -502,20 +524,72 @@ a {
 // Sustainability
 .sustainability {
   position: relative;
-  padding: 160px 0 80px;
+  padding: 160px 0 0;
 
   &__heading {
     color: $accent;
   }
 
+  &__tabs {
+    display: flex;
+    gap: 5px;
+    align-items: flex-end;
+    justify-content: flex-end;
+    .tab {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      padding: 0 15px 7px;
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      &:after {
+        content: "";
+        width: 0%;
+        height: 10px;
+        background-color: $primary;
+        display: block;
+        transition: 0.3s;
+        top: 7px;
+        left: -10px;
+        position: relative;
+      }
+      &:hover:after {
+        width: calc(100% + 20px);
+      }
+    }
+  }
+
+  &__content-container {
+    padding-bottom: 80px;
+  }
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    .tab__link {
+      align-self: flex-end;
+    }
+  }
+  &__content-row {
+    display: grid;
+    gap: 15px;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
   &__text {
-    font-size: 20px;
+    padding: 12px 0;
+    span {
+      font-weight: 500;
+    }
   }
 }
 
 // Video
 .video {
-  padding: 80px 0 160px;
+  padding: 0 0 80px;
+  &__heading-container {
+    padding: 80px 0 30px;
+  }
 
   &__heading {
     color: $primary;
@@ -542,19 +616,35 @@ a {
 
 // News
 .news {
-  padding: 80px 0 160px;
+  padding: 80px 0 0;
   position: relative;
   z-index: 1;
 
+  &__heading-container {
+    padding: 0 0 30px;
+  }
+
   &__heading {
     color: $primary;
+  }
+
+  &__text-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__content-container {
+    padding-bottom: 120px;
+    z-index: 0;
   }
 
   &__archive {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
-    margin-top: 48px;
+    // margin-top: 48px;
   }
 
   &__post {
@@ -579,14 +669,14 @@ a {
 
   &__post-title {
     font-size: 32px;
-    line-height: 1;
-    font-weight: 500;
+    line-height: 1.2;
+    font-weight: 400;
     color: $black;
   }
 
-  &__text {
-    font-size: 15px;
-  }
+  // &__text {
+  //   font-size: 15px;
+  // }
 
   &__image {
     aspect-ratio: 16/9;
