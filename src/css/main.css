@@ -259,7 +259,8 @@ a {
       left: 45vw;
       width: 100%; }
     .hero__element-container--sphere {
-      bottom: 0; }
+      bottom: 40vh;
+      left: -10vw; }
   .hero__line {
     position: absolute;
     min-height: 3px;
