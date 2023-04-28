@@ -237,22 +237,24 @@ a {
     position: absolute;
     opacity: 1;
     background-color: #ececec;
-    line-height: 0.9; }
+    line-height: 0.9;
+    text-align: center; }
     .hero__word--lpc-is {
       z-index: 200;
       bottom: 15vh;
       right: -35%;
       padding: 8px 200px 8px 40px; }
     .hero__word--sustainable {
-      top: -50%;
+      top: -10vh;
       left: 5vw; }
     .hero__word--producer {
       top: -15vh;
       left: 30vw;
-      padding: 8px 200px 40px 40px; }
+      min-width: 700px; }
     .hero__word--exporter {
-      bottom: 50%;
-      right: 50%; }
+      bottom: -5vh;
+      left: -10vw;
+      min-width: 700px; }
   .hero__element-container-1 {
     position: absolute;
     z-index: 5; }
@@ -267,7 +269,7 @@ a {
     position: absolute;
     z-index: 5; }
     .hero__element-container-2--butterfly {
-      top: -15vh;
+      top: 15vh;
       left: 0;
       max-width: 100px; }
   .hero__element-container-3 {
@@ -339,8 +341,10 @@ a {
     bottom: -15vh; }
     .hero__image-container--2 {
       left: 35vw; }
+    .hero__image-container--3 {
+      left: -10vw; }
     .hero__image-container--4 {
-      left: 25vw;
+      left: 35vw;
       top: -15vh; }
 
 .lpc-pillars {

@@ -296,6 +296,7 @@ a {
     opacity: 1;
     background-color: $gray;
     line-height: 0.9;
+    text-align: center;
 
     &--lpc-is {
       z-index: 200;
@@ -305,19 +306,21 @@ a {
     }
 
     &--sustainable {
-      top: -50%;
+      top: -10vh;
       left: 5vw;
     }
 
     &--producer {
       top: -15vh;
       left: 30vw;
-      padding: 8px 200px 40px 40px;
+      // padding: 8px 40px 40px 40px;
+      min-width: 700px;
     }
 
     &--exporter {
-      bottom: 50%;
-      right: 50%;
+      bottom: -5vh;
+      left: -10vw;
+      min-width: 700px;
     }
   }
 
@@ -347,7 +350,7 @@ a {
     z-index: 5;
 
     &--butterfly {
-      top: -15vh;
+      top: 15vh;
       left: 0;
       max-width: 100px;
     }
@@ -459,8 +462,12 @@ a {
       left: 35vw;
     }
 
+    &--3 {
+      left: -10vw;
+    }
+
     &--4 {
-      left: 25vw;
+      left: 35vw;
       top: -15vh;
     }
   }

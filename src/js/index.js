@@ -163,6 +163,7 @@ imgLoad.on("done", (instance) => {
       },
       "<0.2"
     )
+
     // Lines
     .fromTo(
       ".hero__line",
@@ -181,7 +182,21 @@ imgLoad.on("done", (instance) => {
     )
     // Elements
     .fromTo(
-      ".hero__element-container-1",
+      ".hero__element-container-1--sphere",
+      {
+        opacity: 0,
+        x: "-100vw",
+      },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "expo.out",
+        duration: 2.5,
+      },
+      "<+0.2"
+    )
+    .fromTo(
+      ".hero__element-container-1--molecule",
       {
         opacity: 0,
         x: "100vw",
@@ -191,7 +206,6 @@ imgLoad.on("done", (instance) => {
         x: 0,
         ease: "expo.out",
         duration: 2.5,
-        stagger: 0.3,
       },
       "<+0.2"
     )
@@ -236,16 +250,25 @@ imgLoad.on("done", (instance) => {
     })
     // Elements 1 Out
     .to(
-      ".hero__element-container-1",
-
+      ".hero__element-container-1--sphere",
       {
         opacity: 0,
         x: "-100vw",
         ease: "expo.in",
         duration: 2.5,
-        stagger: 0.3,
       },
-      "<+0.8"
+      "<+0.2"
+    )
+    .to(
+      ".hero__element-container-1--molecule",
+
+      {
+        opacity: 0,
+        x: "100vw",
+        ease: "expo.in",
+        duration: 2.5,
+      },
+      "<+0.2"
     )
     // Image 1 Out
     .to(
@@ -278,7 +301,7 @@ imgLoad.on("done", (instance) => {
       ".hero__word--sustainable",
       {
         // opacity: 0,
-        x: "100vw",
+        x: "-100vw",
       },
       {
         // opacity: 1,
@@ -335,7 +358,7 @@ imgLoad.on("done", (instance) => {
       ".hero__element-container-2",
       {
         opacity: 0,
-        x: "100vw",
+        x: "-100vw",
       },
       {
         opacity: 1,
@@ -356,20 +379,20 @@ imgLoad.on("done", (instance) => {
       duration: 1.4,
       stagger: 0.2,
     })
-    // Elements 1 Out
+    // Elements 2 Out
     .to(
       ".hero__element-container-2",
 
       {
         opacity: 0,
-        x: "-100vw",
+        x: "100vw",
         ease: "expo.in",
         duration: 2.5,
         stagger: 0.3,
       },
       "<+0.8"
     )
-    // Image 1 Out
+    // Image 2 Out
     .to(
       ".hero__image-container--2",
 
@@ -388,7 +411,7 @@ imgLoad.on("done", (instance) => {
 
       {
         opacity: 0,
-        x: "-100vw",
+        x: "100vw",
         ease: "back.in(0.7)",
         duration: 1.4,
       },
@@ -407,6 +430,18 @@ imgLoad.on("done", (instance) => {
         ease: "circ.out",
         // duration: 2,
       }
+    )
+    .fromTo(
+      ".hero__image-container--3",
+      {
+        x: 0,
+      },
+      {
+        x: "10vw",
+        ease: "circ.out",
+        // duration: 2,
+      },
+      "<0.3"
     )
     // Lines 2 In
     .fromTo(
@@ -441,16 +476,16 @@ imgLoad.on("done", (instance) => {
       "<0.2"
     )
 
-    // Elements 2 In
+    // Elements 3 In
     .fromTo(
       ".hero__element-container-3",
       {
         opacity: 0,
-        x: "100vw",
+        y: "-100vh",
       },
       {
         opacity: 1,
-        x: 0,
+        y: 0,
         ease: "expo.out",
         duration: 2.5,
         stagger: 0.3,
@@ -473,7 +508,7 @@ imgLoad.on("done", (instance) => {
 
       {
         opacity: 0,
-        x: "-100vw",
+        y: "100vh",
         ease: "expo.in",
         duration: 2.5,
         stagger: 0.3,
@@ -519,6 +554,18 @@ imgLoad.on("done", (instance) => {
         // duration: 2,
       }
     )
+    .fromTo(
+      ".hero__image-container--4",
+      {
+        x: 0,
+      },
+      {
+        x: "-10vw",
+        ease: "circ.out",
+        // duration: 2,
+      },
+      "<0.3"
+    )
     // Lines 4 In
     .fromTo(
       ".hero__line",
@@ -541,7 +588,7 @@ imgLoad.on("done", (instance) => {
       ".hero__word--exporter",
       {
         // opacity: 0,
-        x: "100vw",
+        x: "-100vw",
       },
       {
         // opacity: 1,
