@@ -75,43 +75,11 @@ imgLoad.on("done", (instance) => {
 
   intentObserver.disable();
 
-  // Intro
-  const introTimeline = gsap.timeline({
-    onUpdate: () => {
-      const progress = introTimeline.progress();
-      if (progress >= 0.7) {
-        // Enable observer at the right moment for better UX
-        intentObserver.enable();
-      }
-    },
-
-    onComplete: () => {
-      // Mouse Move
-      heroSection.addEventListener("mousemove", (e) => {
-        // Spheres
-        gsap.to(".spheres-small__image-container", {
-          x: -e.clientX / 50,
-          y: -(e.clientX / 75),
-          duration: 5,
-          ease: "expo.out",
-          stagger: 0.1,
-        });
-      });
-
-      // Scroll
-      window.addEventListener("scroll", (e) => {
-        // Spheres
-        gsap.to(".spheres-small__image-container", {
-          y: -window.scrollY / 2,
-          duration: 5,
-          ease: "expo.out",
-        });
-      });
-    },
+  // Loader
+  const loaderTimeline = gsap.timeline({
+    onComplete: () => introTimeline.play(),
   });
-
-  introTimeline
-    // Loader
+  loaderTimeline
     .to(
       ".loader__line--accent",
 
@@ -146,7 +114,46 @@ imgLoad.on("done", (instance) => {
       {
         opacity: 1,
       }
-    )
+    );
+
+  // Intro
+  const introTimeline = gsap.timeline({
+    paused: true,
+    onUpdate: () => {
+      const progress = introTimeline.progress();
+      if (progress >= 0.7) {
+        // Enable observer at the right moment for better UX
+        intentObserver.enable();
+      }
+    },
+
+    onComplete: () => {
+      // Mouse Move
+      heroSection.addEventListener("mousemove", (e) => {
+        // Spheres
+        gsap.to(".spheres-small__image-container", {
+          x: -e.clientX / 50,
+          y: -(e.clientX / 75),
+          duration: 5,
+          ease: "expo.out",
+          stagger: 0.1,
+        });
+      });
+
+      // Scroll
+      window.addEventListener("scroll", (e) => {
+        // Spheres
+        gsap.to(".spheres-small__image-container", {
+          y: -window.scrollY / 2,
+          duration: 5,
+          ease: "expo.out",
+        });
+      });
+    },
+  });
+
+  introTimeline
+
     // SCENE 1
     // Image Reveal
     .fromTo(
@@ -163,6 +170,7 @@ imgLoad.on("done", (instance) => {
       },
       "<0.2"
     )
+
     // Lines
     .fromTo(
       ".hero__line",
@@ -181,7 +189,21 @@ imgLoad.on("done", (instance) => {
     )
     // Elements
     .fromTo(
-      ".hero__element-container-1",
+      ".hero__element-container-1--sphere",
+      {
+        opacity: 0,
+        x: "-100vw",
+      },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "expo.out",
+        duration: 2.5,
+      },
+      "<+0.2"
+    )
+    .fromTo(
+      ".hero__element-container-1--molecule",
       {
         opacity: 0,
         x: "100vw",
@@ -191,7 +213,6 @@ imgLoad.on("done", (instance) => {
         x: 0,
         ease: "expo.out",
         duration: 2.5,
-        stagger: 0.3,
       },
       "<+0.2"
     )
@@ -225,8 +246,10 @@ imgLoad.on("done", (instance) => {
       },
       "<0.2"
     )
+
     // SCENE 2
     // Lines
+
     .to(".hero__line", {
       opacity: 0,
       x: "-100vw",
@@ -236,16 +259,25 @@ imgLoad.on("done", (instance) => {
     })
     // Elements 1 Out
     .to(
-      ".hero__element-container-1",
-
+      ".hero__element-container-1--sphere",
       {
         opacity: 0,
         x: "-100vw",
         ease: "expo.in",
         duration: 2.5,
-        stagger: 0.3,
       },
-      "<+0.8"
+      "<+0.2"
+    )
+    .to(
+      ".hero__element-container-1--molecule",
+
+      {
+        opacity: 0,
+        x: "100vw",
+        ease: "expo.in",
+        duration: 2.5,
+      },
+      "<+0.2"
     )
     // Image 1 Out
     .to(
@@ -278,7 +310,7 @@ imgLoad.on("done", (instance) => {
       ".hero__word--sustainable",
       {
         // opacity: 0,
-        x: "100vw",
+        x: "-100vw",
       },
       {
         // opacity: 1,
@@ -335,7 +367,7 @@ imgLoad.on("done", (instance) => {
       ".hero__element-container-2",
       {
         opacity: 0,
-        x: "100vw",
+        x: "-100vw",
       },
       {
         opacity: 1,
@@ -346,6 +378,7 @@ imgLoad.on("done", (instance) => {
       },
       "<+0.2"
     )
+    .addLabel("scene1")
 
     // SCENE 3
     // Lines
@@ -356,20 +389,20 @@ imgLoad.on("done", (instance) => {
       duration: 1.4,
       stagger: 0.2,
     })
-    // Elements 1 Out
+    // Elements 2 Out
     .to(
       ".hero__element-container-2",
 
       {
         opacity: 0,
-        x: "-100vw",
+        x: "100vw",
         ease: "expo.in",
         duration: 2.5,
         stagger: 0.3,
       },
       "<+0.8"
     )
-    // Image 1 Out
+    // Image 2 Out
     .to(
       ".hero__image-container--2",
 
@@ -388,7 +421,7 @@ imgLoad.on("done", (instance) => {
 
       {
         opacity: 0,
-        x: "-100vw",
+        x: "100vw",
         ease: "back.in(0.7)",
         duration: 1.4,
       },
@@ -407,6 +440,18 @@ imgLoad.on("done", (instance) => {
         ease: "circ.out",
         // duration: 2,
       }
+    )
+    .fromTo(
+      ".hero__image-container--3",
+      {
+        x: 0,
+      },
+      {
+        x: "10vw",
+        ease: "circ.out",
+        // duration: 2,
+      },
+      "<0.3"
     )
     // Lines 2 In
     .fromTo(
@@ -441,22 +486,23 @@ imgLoad.on("done", (instance) => {
       "<0.2"
     )
 
-    // Elements 2 In
+    // Elements 3 In
     .fromTo(
       ".hero__element-container-3",
       {
         opacity: 0,
-        x: "100vw",
+        y: "-100vh",
       },
       {
         opacity: 1,
-        x: 0,
+        y: 0,
         ease: "expo.out",
         duration: 2.5,
         stagger: 0.3,
       },
       "<+0.2"
     )
+    .addLabel("scene3")
 
     // SCENE 4
     // Lines 3 Out
@@ -473,7 +519,7 @@ imgLoad.on("done", (instance) => {
 
       {
         opacity: 0,
-        x: "-100vw",
+        y: "100vh",
         ease: "expo.in",
         duration: 2.5,
         stagger: 0.3,
@@ -519,6 +565,18 @@ imgLoad.on("done", (instance) => {
         // duration: 2,
       }
     )
+    .fromTo(
+      ".hero__image-container--4",
+      {
+        x: 0,
+      },
+      {
+        x: "-10vw",
+        ease: "circ.out",
+        // duration: 2,
+      },
+      "<0.3"
+    )
     // Lines 4 In
     .fromTo(
       ".hero__line",
@@ -541,7 +599,7 @@ imgLoad.on("done", (instance) => {
       ".hero__word--exporter",
       {
         // opacity: 0,
-        x: "100vw",
+        x: "-100vw",
       },
       {
         // opacity: 1,
@@ -550,8 +608,77 @@ imgLoad.on("done", (instance) => {
         duration: 1.4,
       },
       "<0.2"
+    )
+    // Elements 4 In
+    .fromTo(
+      ".hero__element-container-4",
+      {
+        opacity: 0,
+        x: "-100vh",
+      },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "expo.out",
+        duration: 2.5,
+        stagger: 0.3,
+      },
+      "<+0.2"
+    )
+    .addLabel("scene4")
+
+    // SCENE 4 - FINAL
+
+    // Elements 4 Out
+    .to(
+      ".hero__element-container-4",
+
+      {
+        opacity: 0,
+        y: "-50vh",
+        x: "100vh",
+        ease: "expo.in",
+        duration: 2.5,
+        stagger: 0.3,
+      },
+      "<+0.8"
+    )
+    // Lines 4 Out
+    .to(".hero__line", {
+      opacity: 0,
+      x: "-100vw",
+      ease: "circ.in",
+      duration: 1.4,
+      stagger: 0.2,
+    })
+
+    // Image 3 Out
+    .to(
+      ".hero__image-container--4",
+
+      {
+        opacity: 0,
+        clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
+        ease: "circ.out",
+
+        // duration: 2,
+      },
+      "<0.2"
+    )
+    // Word 3 Out
+    .to(
+      ".hero__word--exporter",
+
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "back.in(0.7)",
+        duration: 1.4,
+      },
+      "<0.2"
     );
 
+  introTimeline.repeat(-1);
   // Whole Page
 
   // Entrances Gradient Glow
