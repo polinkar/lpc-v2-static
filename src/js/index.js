@@ -133,9 +133,9 @@ imgLoad.on("done", (instance) => {
         duration: 0.5,
         ease: "circ.out",
         delay: 0.2,
-        display: "none",
       }
     )
+    // Header
     .fromTo(
       ".header",
       {
@@ -147,9 +147,14 @@ imgLoad.on("done", (instance) => {
         opacity: 1,
       }
     )
+    // SCENE 1
+    // Image Reveal
     .fromTo(
       ".hero__image-container--1",
-      { opacity: 0, clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)" },
+      {
+        opacity: 0,
+        clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
+      },
       {
         opacity: 1,
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
@@ -158,6 +163,7 @@ imgLoad.on("done", (instance) => {
       },
       "<0.2"
     )
+    // Lines
     .fromTo(
       ".hero__line",
       {
@@ -173,8 +179,9 @@ imgLoad.on("done", (instance) => {
       },
       "<"
     )
+    // Elements
     .fromTo(
-      ".hero__element-container",
+      ".hero__element-container-1",
       {
         opacity: 0,
         x: "100vw",
@@ -188,6 +195,8 @@ imgLoad.on("done", (instance) => {
       },
       "<+0.2"
     )
+
+    // Image Mask
     .fromTo(
       ".hero__image-container--1",
       {
@@ -201,6 +210,7 @@ imgLoad.on("done", (instance) => {
       "<0.5"
     )
 
+    // Word
     .fromTo(
       ".hero__word--lpc-is",
       {
@@ -214,47 +224,333 @@ imgLoad.on("done", (instance) => {
         duration: 1.4,
       },
       "<0.2"
-    );
+    )
+    // SCENE 2
+    // Lines
+    .to(".hero__line", {
+      opacity: 0,
+      x: "-100vw",
+      ease: "circ.in",
+      duration: 1.4,
+      stagger: 0.2,
+    })
+    // Elements 1 Out
+    .to(
+      ".hero__element-container-1",
 
-  // .to(".hero__word--lpc-is", {
-  //   opacity: 0,
-  //   x: "-100vh",
-  //   ease: "circ.out",
-  //   duration: 3,
-  // })
-  // .fromTo(
-  //   ".hero__word--sustainable",
-  //   {
-  //     opacity: 0,
-  //     x: "100%",
-  //   },
-  //   {
-  //     opacity: 1,
-  //     x: 0,
-  //   }
-  // )
-  // .fromTo(
-  //   ".hero__word--producer",
-  //   {
-  //     opacity: 0,
-  //     x: "100%",
-  //   },
-  //   {
-  //     opacity: 1,
-  //     x: 0,
-  //   }
-  // )
-  // .fromTo(
-  //   ".hero__word--exporter",
-  //   {
-  //     opacity: 0,
-  //     x: "100%",
-  //   },
-  //   {
-  //     opacity: 1,
-  //     x: 0,
-  //   }
-  // );
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "expo.in",
+        duration: 2.5,
+        stagger: 0.3,
+      },
+      "<+0.8"
+    )
+    // Image 1 Out
+    .to(
+      ".hero__image-container--1",
+
+      {
+        opacity: 0,
+        clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
+        ease: "circ.out",
+
+        // duration: 2,
+      },
+      "<0.2"
+    )
+    // Word 1 Out
+    .to(
+      ".hero__word--lpc-is",
+
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "back.in(0.7)",
+        duration: 1.4,
+      },
+      "<0.2"
+    )
+
+    // Word 2 In
+    .fromTo(
+      ".hero__word--sustainable",
+      {
+        // opacity: 0,
+        x: "100vw",
+      },
+      {
+        // opacity: 1,
+        x: 0,
+        ease: "back.out(0.7)",
+        duration: 1.4,
+      },
+      "<0.8"
+    )
+    // Lines 2 In
+    .fromTo(
+      ".hero__line",
+      {
+        opacity: 0,
+        x: "100vw",
+      },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "circ.out",
+        duration: 1.4,
+        stagger: 0.2,
+      },
+      "<"
+    )
+    // Image 2 Reveal
+    .fromTo(
+      ".hero__image-container--2",
+      {
+        opacity: 0,
+        clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
+      },
+      {
+        opacity: 1,
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        ease: "circ.out",
+        // duration: 2,
+      }
+    )
+    .fromTo(
+      ".hero__image-container--2",
+      {
+        x: 0,
+      },
+      {
+        x: "-10vw",
+        ease: "circ.out",
+        // duration: 2,
+      },
+      "<0.3"
+    )
+    // Elements 2 In
+    .fromTo(
+      ".hero__element-container-2",
+      {
+        opacity: 0,
+        x: "100vw",
+      },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "expo.out",
+        duration: 2.5,
+        stagger: 0.3,
+      },
+      "<+0.2"
+    )
+
+    // SCENE 3
+    // Lines
+    .to(".hero__line", {
+      opacity: 0,
+      x: "-100vw",
+      ease: "circ.in",
+      duration: 1.4,
+      stagger: 0.2,
+    })
+    // Elements 1 Out
+    .to(
+      ".hero__element-container-2",
+
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "expo.in",
+        duration: 2.5,
+        stagger: 0.3,
+      },
+      "<+0.8"
+    )
+    // Image 1 Out
+    .to(
+      ".hero__image-container--2",
+
+      {
+        opacity: 0,
+        clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
+        ease: "circ.out",
+
+        // duration: 2,
+      },
+      "<0.2"
+    )
+    // Word 2 Out
+    .to(
+      ".hero__word--sustainable",
+
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "back.in(0.7)",
+        duration: 1.4,
+      },
+      "<0.2"
+    )
+    // Image 3 In
+    .fromTo(
+      ".hero__image-container--3",
+      {
+        opacity: 0,
+        clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
+      },
+      {
+        opacity: 1,
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        ease: "circ.out",
+        // duration: 2,
+      }
+    )
+    // Lines 2 In
+    .fromTo(
+      ".hero__line",
+      {
+        opacity: 0,
+        x: "100vw",
+      },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "circ.out",
+        duration: 1.4,
+        stagger: 0.2,
+      },
+      "<"
+    )
+
+    // Word 3 In
+    .fromTo(
+      ".hero__word--producer",
+      {
+        // opacity: 0,
+        x: "100vw",
+      },
+      {
+        // opacity: 1,
+        x: 0,
+        ease: "back.out(0.7)",
+        duration: 1.4,
+      },
+      "<0.2"
+    )
+
+    // Elements 2 In
+    .fromTo(
+      ".hero__element-container-3",
+      {
+        opacity: 0,
+        x: "100vw",
+      },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "expo.out",
+        duration: 2.5,
+        stagger: 0.3,
+      },
+      "<+0.2"
+    )
+
+    // SCENE 4
+    // Lines 3 Out
+    .to(".hero__line", {
+      opacity: 0,
+      x: "-100vw",
+      ease: "circ.in",
+      duration: 1.4,
+      stagger: 0.2,
+    })
+    // Elements 3 Out
+    .to(
+      ".hero__element-container-3",
+
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "expo.in",
+        duration: 2.5,
+        stagger: 0.3,
+      },
+      "<+0.8"
+    )
+    // Image 3 Out
+    .to(
+      ".hero__image-container--3",
+
+      {
+        opacity: 0,
+        clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
+        ease: "circ.out",
+
+        // duration: 2,
+      },
+      "<0.2"
+    )
+    // Word 3 Out
+    .to(
+      ".hero__word--producer",
+
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "back.in(0.7)",
+        duration: 1.4,
+      },
+      "<0.2"
+    )
+    // Image 4 In
+    .fromTo(
+      ".hero__image-container--4",
+      {
+        opacity: 0,
+        clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
+      },
+      {
+        opacity: 1,
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        ease: "circ.out",
+        // duration: 2,
+      }
+    )
+    // Lines 4 In
+    .fromTo(
+      ".hero__line",
+      {
+        opacity: 0,
+        x: "100vw",
+      },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "circ.out",
+        duration: 1.4,
+        stagger: 0.2,
+      },
+      "<"
+    )
+
+    // Word 4 In
+    .fromTo(
+      ".hero__word--exporter",
+      {
+        // opacity: 0,
+        x: "100vw",
+      },
+      {
+        // opacity: 1,
+        x: 0,
+        ease: "back.out(0.7)",
+        duration: 1.4,
+      },
+      "<0.2"
+    );
 
   // Whole Page
 

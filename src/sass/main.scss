@@ -284,12 +284,13 @@ a {
 
     &--sustainable {
       top: -50%;
-      left: 0%;
+      left: 5vw;
     }
 
     &--producer {
-      top: 0;
-      left: 50%;
+      top: -15vh;
+      left: 30vw;
+      padding: 8px 200px 40px 40px;
     }
 
     &--exporter {
@@ -303,7 +304,7 @@ a {
   //   width: 100%;
   // }
 
-  &__element-container {
+  &__element-container-1 {
     position: absolute;
     z-index: 5;
 
@@ -314,8 +315,30 @@ a {
     }
 
     &--sphere {
-      bottom: 40vh;
+      bottom: 10vh;
       left: -10vw;
+    }
+  }
+
+  &__element-container-2 {
+    position: absolute;
+    z-index: 5;
+
+    &--butterfly {
+      top: -15vh;
+      left: 0;
+      max-width: 100px;
+    }
+  }
+
+  &__element-container-3 {
+    position: absolute;
+    z-index: 5;
+
+    &--motor-oil {
+      top: -15vh;
+      left: -5vw;
+      max-width: 100px;
     }
   }
 
@@ -398,10 +421,26 @@ a {
     }
   }
 
+  &__images {
+    // position: relative;
+
+    z-index: 2;
+    min-width: 800px;
+  }
+
   &__image-container {
-    position: relative;
-    z-index: 1;
-    width: 100%;
+    position: absolute;
+    min-width: 500px;
+    bottom: -15vh;
+
+    &--2 {
+      left: 35vw;
+    }
+
+    &--4 {
+      left: 25vw;
+      top: -15vh;
+    }
   }
 }
 

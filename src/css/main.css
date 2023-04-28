@@ -232,23 +232,38 @@ a {
       padding: 8px 200px 8px 40px; }
     .hero__word--sustainable {
       top: -50%;
-      left: 0%; }
+      left: 5vw; }
     .hero__word--producer {
-      top: 0;
-      left: 50%; }
+      top: -15vh;
+      left: 30vw;
+      padding: 8px 200px 40px 40px; }
     .hero__word--exporter {
       bottom: 50%;
       right: 50%; }
-  .hero__element-container {
+  .hero__element-container-1 {
     position: absolute;
     z-index: 5; }
-    .hero__element-container--molecule {
+    .hero__element-container-1--molecule {
       top: 0;
       left: 45vw;
       width: 100%; }
-    .hero__element-container--sphere {
-      bottom: 40vh;
+    .hero__element-container-1--sphere {
+      bottom: 10vh;
       left: -10vw; }
+  .hero__element-container-2 {
+    position: absolute;
+    z-index: 5; }
+    .hero__element-container-2--butterfly {
+      top: -15vh;
+      left: 0;
+      max-width: 100px; }
+  .hero__element-container-3 {
+    position: absolute;
+    z-index: 5; }
+    .hero__element-container-3--motor-oil {
+      top: -15vh;
+      left: -5vw;
+      max-width: 100px; }
   .hero__line {
     position: absolute;
     min-height: 3px;
@@ -302,10 +317,18 @@ a {
       background-color: #82c341;
       height: 80px;
       width: 280px; }
+  .hero__images {
+    z-index: 2;
+    min-width: 800px; }
   .hero__image-container {
-    position: relative;
-    z-index: 1;
-    width: 100%; }
+    position: absolute;
+    min-width: 500px;
+    bottom: -15vh; }
+    .hero__image-container--2 {
+      left: 35vw; }
+    .hero__image-container--4 {
+      left: 25vw;
+      top: -15vh; }
 
 .lpc-pillars {
   padding: 180px 20px 140px;

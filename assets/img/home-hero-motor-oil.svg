@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64.518" height="90.064" viewBox="0 0 64.518 90.064">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_16881" data-name="Path 16881" d="M32.695,0c9.767,23.153,32.366,35.254,32.262,58.386A32.045,32.045,0,0,1,32.695,90.064,32.049,32.049,0,0,1,.44,58.386C.322,35.254,22.928,23.161,32.695,0" transform="translate(-0.439)" fill="#fff" clip-rule="evenodd"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="0.498" cy="0.034" r="0.992" gradientTransform="matrix(1.388, 0, 0, -1, 0.516, 7.511)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ec6065"/>
+      <stop offset="0.091" stop-color="#eb5d63"/>
+      <stop offset="0.185" stop-color="#e9565a"/>
+      <stop offset="0.281" stop-color="#e9474c"/>
+      <stop offset="0.377" stop-color="#e73638"/>
+      <stop offset="0.474" stop-color="#e21f26"/>
+      <stop offset="0.5" stop-color="#e21f26"/>
+      <stop offset="0.8" stop-color="#bc2026"/>
+      <stop offset="0.853" stop-color="#b42029"/>
+      <stop offset="0.956" stop-color="#98233a"/>
+      <stop offset="1" stop-color="#8b2340"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="0.5" cy="0.5" r="0.124" gradientTransform="matrix(1.618, -0.407, -2.126, -2.696, 13.901, 18.873)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.949"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g id="Mask_Group_33" data-name="Mask Group 33" clip-path="url(#clip-path)">
+    <g id="Group_12775" data-name="Group 12775" transform="translate(-0.383 -0.044)">
+      <path id="path-1_00000031168846310436039590000001654358039337138330_" d="M131.955,43.57c9.767,23.153,32.366,35.254,32.262,58.386a32.264,32.264,0,0,1-64.517,0c-.118-23.131,22.488-35.225,32.255-58.386" transform="translate(-99.375 -43.57)" fill="#fff" fill-rule="evenodd"/>
+      <rect id="Rectangle_140" data-name="Rectangle 140" width="64.902" height="90.064" transform="translate(0 0.022)" fill="url(#radial-gradient)"/>
+      <path id="Path_00000056402229005150673440000010735367864294027686_" d="M117.582,95.59H129.44l4.322,16.97h.192l4.411-16.97h11.761l9.072,33.179H146.38l-3.546-14.554h-.192l-3.554,14.554H128.62l-3.45-14.31h-.192l-3.7,14.31H108.51Z" transform="translate(-101.676 -57.159)" fill="#172d55"/>
+      <path id="Path_00000082333551482621371230000018162187658775394195_" d="M171.545,80.357c6.693,16.408,6.782,31.827.207,34.442s-17.332-8.562-24.018-24.971S140.952,58,147.527,55.386,164.851,63.948,171.545,80.357Z" transform="translate(-110.596 -46.557)" fill="url(#radial-gradient-2)"/>
+    </g>
+  </g>
+</svg>
