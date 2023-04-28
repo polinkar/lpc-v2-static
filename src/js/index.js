@@ -45,39 +45,43 @@ imgLoad.on("done", (instance) => {
   const trader = document.querySelector(".hero__trader span");
 
   // Hero Scene
-  const heroTimeline = gsap.timeline({
-    paused: true,
-    onComplete: () => {
-      // Make sure the user can't scroll during the observer scene
-      document.querySelector("body").style.overflowY = "visible";
-    },
-  });
+  // const heroTimeline = gsap.timeline({
+  //   paused: true,
+  //   onComplete: () => {
+  //     // Make sure the user can't scroll during the observer scene
+  //     document.querySelector("body").style.overflowY = "visible";
+  //   },
+  // });
 
-  const normalScroll = () => {
-    intentObserver.disable();
-  };
+  // const normalScroll = () => {
+  //   intentObserver.disable();
+  // };
 
-  let intentObserver = ScrollTrigger.observe({
-    type: "wheel,touch",
+  // let intentObserver = ScrollTrigger.observe({
+  //   type: "wheel,touch",
 
-    onDown: () => {
-      heroTimeline.tweenTo(heroTimeline.nextLabel());
-      console.log(heroTimeline.nextLabel());
-      if (
-        heroTimeline.nextLabel() === "reset" ||
-        heroTimeline.nextLabel() === undefined
-      )
-        normalScroll();
-    },
-    tolerance: 10,
-    preventDefault: true,
-  });
+  //   onDown: () => {
+  //     heroTimeline.tweenTo(heroTimeline.nextLabel());
+  //     console.log(heroTimeline.nextLabel());
+  //     if (
+  //       heroTimeline.nextLabel() === "reset" ||
+  //       heroTimeline.nextLabel() === undefined
+  //     )
+  //       normalScroll();
+  //   },
+  //   tolerance: 10,
+  //   preventDefault: true,
+  // });
 
-  intentObserver.disable();
+  // intentObserver.disable();
 
   // Loader
   const loaderTimeline = gsap.timeline({
-    onComplete: () => introTimeline.play(),
+    onComplete: () => {
+      introTimeline.play();
+      document.querySelector("body").style.overflowY = "visible";
+      document.querySelector("loader").style.display = " none";
+    },
   });
   loaderTimeline
     .to(
@@ -119,37 +123,37 @@ imgLoad.on("done", (instance) => {
   // Intro
   const introTimeline = gsap.timeline({
     paused: true,
-    onUpdate: () => {
-      const progress = introTimeline.progress();
-      if (progress >= 0.7) {
-        // Enable observer at the right moment for better UX
-        intentObserver.enable();
-      }
-    },
+    // onUpdate: () => {
+    //   const progress = introTimeline.progress();
+    //   if (progress >= 0.7) {
+    //     // Enable observer at the right moment for better UX
+    //     intentObserver.enable();
+    //   }
+    // },
 
-    onComplete: () => {
-      // Mouse Move
-      heroSection.addEventListener("mousemove", (e) => {
-        // Spheres
-        gsap.to(".spheres-small__image-container", {
-          x: -e.clientX / 50,
-          y: -(e.clientX / 75),
-          duration: 5,
-          ease: "expo.out",
-          stagger: 0.1,
-        });
-      });
+    // onComplete: () => {
+    //   // Mouse Move
+    //   heroSection.addEventListener("mousemove", (e) => {
+    //     // Spheres
+    //     gsap.to(".spheres-small__image-container", {
+    //       x: -e.clientX / 50,
+    //       y: -(e.clientX / 75),
+    //       duration: 5,
+    //       ease: "expo.out",
+    //       stagger: 0.1,
+    //     });
+    //   });
 
-      // Scroll
-      window.addEventListener("scroll", (e) => {
-        // Spheres
-        gsap.to(".spheres-small__image-container", {
-          y: -window.scrollY / 2,
-          duration: 5,
-          ease: "expo.out",
-        });
-      });
-    },
+    //   // Scroll
+    //   window.addEventListener("scroll", (e) => {
+    //     // Spheres
+    //     gsap.to(".spheres-small__image-container", {
+    //       y: -window.scrollY / 2,
+    //       duration: 5,
+    //       ease: "expo.out",
+    //     });
+    //   });
+    // },
   });
 
   introTimeline
@@ -679,7 +683,6 @@ imgLoad.on("done", (instance) => {
     );
 
   introTimeline.repeat(-1);
-  // Whole Page
 
   // Entrances Gradient Glow
 
