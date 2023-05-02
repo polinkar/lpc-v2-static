@@ -96,7 +96,7 @@ select {
 
 body {
   font-family: "Helvetica";
-  font-weight: 300;
+  font-weight: 400;
   background-color: #ececec;
   overflow: hidden;
   color: #1e1b18;
@@ -131,7 +131,7 @@ body {
 
 .small-heading {
   font-size: 39px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.2; }
 
 .button {
@@ -141,7 +141,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   position: relative;
-  padding: 14px 25px;
+  padding: 14px 0;
   font-size: 13px;
   font-weight: 500;
   pointer-events: auto;
@@ -157,7 +157,6 @@ body {
   height: 100%; }
 
 .button {
-  overflow: hidden;
   z-index: 2;
   color: #1e1b18;
   display: flex;
