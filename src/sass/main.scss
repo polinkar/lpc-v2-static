@@ -333,6 +333,7 @@ a {
   &__element-container-1 {
     position: absolute;
     z-index: 5;
+    opacity: 0;
 
     &--molecule {
       top: 0;
@@ -349,6 +350,7 @@ a {
   &__element-container-2 {
     position: absolute;
     z-index: 5;
+    opacity: 0;
 
     &--butterfly {
       top: 15vh;
@@ -360,6 +362,7 @@ a {
   &__element-container-3 {
     position: absolute;
     z-index: 5;
+    opacity: 0;
 
     &--motor-oil {
       top: -15vh;
@@ -371,6 +374,7 @@ a {
   &__element-container-4 {
     position: absolute;
     z-index: 5;
+    opacity: 0;
 
     &--clouds-1 {
       top: -30vh;
@@ -391,6 +395,7 @@ a {
     min-height: 3px;
     background-color: $accent;
     z-index: 2;
+    opacity: 0;
 
     &--1 {
       left: -8vw;
@@ -501,7 +506,8 @@ a {
     color: $white;
   }
   &__row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 40px;
     .lpc-pillars-item {
       padding: 30px 0 40px;
@@ -727,10 +733,6 @@ a {
   z-index: 2;
   padding: 80px 0 160px;
 
-  &__container {
-    // padding: 80px 0;
-  }
-
   &__row {
     display: flex;
     // grid-template-columns: 1fr 1fr;
@@ -742,11 +744,6 @@ a {
 
   &__heading {
     color: $primary;
-  }
-
-  &__text {
-    // max-width: 640px;
-    // font-size: 20px;
   }
 
   &__images {
@@ -764,10 +761,6 @@ a {
   position: relative;
   z-index: 1;
   padding: 80px 0 0;
-
-  &__container {
-    // max-width: 1800px;
-  }
 
   &__heading {
     font-size: 20px;

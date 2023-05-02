@@ -38,7 +38,7 @@ imgLoad.on("done", (instance) => {
     onComplete: () => {
       introTimeline.play();
       document.querySelector("body").style.overflowY = "visible";
-      document.querySelector(".loader").style.display = " none";
+      // document.querySelector(".loader").style.display = " none";
     },
   });
   loaderTimeline
