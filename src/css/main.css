@@ -296,51 +296,51 @@ a {
     z-index: 2; }
     .hero__line--1 {
       left: -8vw;
-      top: 0vh;
+      top: -20vh;
       background-color: #82c341;
       height: 15px;
       width: 400px; }
     .hero__line--2 {
       left: -20vw;
-      top: 10vh;
+      top: -5vh;
       background-color: #82c341;
       height: 3px;
       width: 280px; }
     .hero__line--3 {
       left: -5vw;
-      top: 25vh;
+      top: 0vh;
       background-color: #fff;
       height: 3px;
       width: 100px; }
     .hero__line--4 {
-      left: -5vw;
-      top: 30vh;
+      left: 0vw;
+      top: 10vh;
       background-color: #004fa3;
       height: 25px;
       width: 160px; }
     .hero__line--5 {
       left: 45vw;
-      top: 10vh;
+      top: -10vh;
       background-color: #fff;
       height: 2px;
       width: 280px; }
     .hero__line--6 {
-      left: 35vw;
-      top: 20vh;
+      left: 40vw;
+      top: 0vh;
       background-color: #82c341;
       height: 15px;
       width: 280px; }
     .hero__line--7 {
       left: 50vw;
-      top: 25vh;
+      top: 5vh;
       background-color: #82c341;
       height: 3px;
       width: 320px; }
     .hero__line--8 {
-      left: 25vw;
-      top: 35vh;
+      left: 30vw;
+      top: 15vh;
       background-color: #82c341;
-      height: 80px;
+      height: 40px;
       width: 280px; }
   .hero__images {
     z-index: 2;
@@ -440,7 +440,7 @@ a {
   .sustainability__content-row {
     display: grid;
     gap: 15px;
-    align-items: center;
+    align-items: end;
     grid-template-columns: 1fr 1fr 1fr; }
   .sustainability__text {
     padding: 12px 0;
@@ -704,3 +704,7 @@ a {
 .link:hover::before {
   transform-origin: 0% 50%;
   transform: scale3d(1, 1, 1); }
+
+.up,
+.down {
+  will-change: transform; }

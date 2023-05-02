@@ -33,54 +33,12 @@ const main = document.querySelector(".main");
 const imgLoad = imagesLoaded(main);
 
 imgLoad.on("done", (instance) => {
-  const heroSection = document.querySelector(".hero");
-  const earth = document.querySelector(".spheres__image-container--earth");
-  const green = document.querySelector(".spheres__image-container--green");
-  const blue = document.querySelector(".spheres__image-container--blue");
-
-  const accentText = document.querySelectorAll(".hero__word span");
-
-  const sustainable = document.querySelector(".hero__sustainable span");
-  const producer = document.querySelector(".hero__producer span");
-  const trader = document.querySelector(".hero__trader span");
-
-  // Hero Scene
-  // const heroTimeline = gsap.timeline({
-  //   paused: true,
-  //   onComplete: () => {
-  //     // Make sure the user can't scroll during the observer scene
-  //     document.querySelector("body").style.overflowY = "visible";
-  //   },
-  // });
-
-  // const normalScroll = () => {
-  //   intentObserver.disable();
-  // };
-
-  // let intentObserver = ScrollTrigger.observe({
-  //   type: "wheel,touch",
-
-  //   onDown: () => {
-  //     heroTimeline.tweenTo(heroTimeline.nextLabel());
-  //     console.log(heroTimeline.nextLabel());
-  //     if (
-  //       heroTimeline.nextLabel() === "reset" ||
-  //       heroTimeline.nextLabel() === undefined
-  //     )
-  //       normalScroll();
-  //   },
-  //   tolerance: 10,
-  //   preventDefault: true,
-  // });
-
-  // intentObserver.disable();
-
   // Loader
   const loaderTimeline = gsap.timeline({
     onComplete: () => {
       introTimeline.play();
       document.querySelector("body").style.overflowY = "visible";
-      document.querySelector("loader").style.display = " none";
+      document.querySelector(".loader").style.display = " none";
     },
   });
   loaderTimeline
@@ -123,38 +81,9 @@ imgLoad.on("done", (instance) => {
   // Intro
   const introTimeline = gsap.timeline({
     paused: true,
-    // onUpdate: () => {
-    //   const progress = introTimeline.progress();
-    //   if (progress >= 0.7) {
-    //     // Enable observer at the right moment for better UX
-    //     intentObserver.enable();
-    //   }
-    // },
-
-    // onComplete: () => {
-    //   // Mouse Move
-    //   heroSection.addEventListener("mousemove", (e) => {
-    //     // Spheres
-    //     gsap.to(".spheres-small__image-container", {
-    //       x: -e.clientX / 50,
-    //       y: -(e.clientX / 75),
-    //       duration: 5,
-    //       ease: "expo.out",
-    //       stagger: 0.1,
-    //     });
-    //   });
-
-    //   // Scroll
-    //   window.addEventListener("scroll", (e) => {
-    //     // Spheres
-    //     gsap.to(".spheres-small__image-container", {
-    //       y: -window.scrollY / 2,
-    //       duration: 5,
-    //       ease: "expo.out",
-    //     });
-    //   });
-    // },
   });
+
+  // introTimeline.duration(15);
 
   introTimeline
 
@@ -171,8 +100,7 @@ imgLoad.on("done", (instance) => {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         ease: "circ.out",
         // duration: 2,
-      },
-      "<0.2"
+      }
     )
 
     // Lines
@@ -188,8 +116,8 @@ imgLoad.on("done", (instance) => {
         ease: "circ.out",
         duration: 1.4,
         stagger: 0.2,
-      },
-      "<"
+        delay: 0.2,
+      }
     )
     // Elements
     .fromTo(
@@ -217,22 +145,9 @@ imgLoad.on("done", (instance) => {
         x: 0,
         ease: "expo.out",
         duration: 2.5,
+        stagger: 0.3,
       },
       "<+0.2"
-    )
-
-    // Image Mask
-    .fromTo(
-      ".hero__image-container--1",
-      {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      },
-      {
-        clipPath: "polygon(0% 10%, 100% 10%, 100% 90%, 0% 90%)",
-        ease: "back.out(1.7)",
-        // duration: 2,
-      },
-      "<0.5"
     )
 
     // Word
@@ -251,16 +166,34 @@ imgLoad.on("done", (instance) => {
       "<0.2"
     )
 
+    // Image Mask
+    .fromTo(
+      ".hero__image-container--1",
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      },
+      {
+        clipPath: "polygon(0% 10%, 100% 10%, 100% 90%, 0% 90%)",
+        ease: "back.out(1.7)",
+        // duration: 2,
+      },
+      "<-0.2"
+    )
+
     // SCENE 2
     // Lines
 
-    .to(".hero__line", {
-      opacity: 0,
-      x: "-100vw",
-      ease: "circ.in",
-      duration: 1.4,
-      stagger: 0.2,
-    })
+    .to(
+      ".hero__line",
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "circ.in",
+        duration: 1.4,
+        stagger: 0.2,
+      },
+      "<0.3"
+    )
     // Elements 1 Out
     .to(
       ".hero__element-container-1--sphere",
@@ -270,7 +203,7 @@ imgLoad.on("done", (instance) => {
         ease: "expo.in",
         duration: 2.5,
       },
-      "<+0.2"
+      "<+0.8"
     )
     .to(
       ".hero__element-container-1--molecule",
@@ -291,11 +224,10 @@ imgLoad.on("done", (instance) => {
         opacity: 0,
         clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
         ease: "circ.out",
-
-        // duration: 2,
       },
-      "<0.2"
+      "<1.2"
     )
+
     // Word 1 Out
     .to(
       ".hero__word--lpc-is",
@@ -306,7 +238,7 @@ imgLoad.on("done", (instance) => {
         ease: "back.in(0.7)",
         duration: 1.4,
       },
-      "<0.2"
+      "<-0.2"
     )
 
     // Word 2 In
@@ -322,7 +254,7 @@ imgLoad.on("done", (instance) => {
         ease: "back.out(0.7)",
         duration: 1.4,
       },
-      "<0.8"
+      "<1"
     )
     // Lines 2 In
     .fromTo(
@@ -352,7 +284,8 @@ imgLoad.on("done", (instance) => {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         ease: "circ.out",
         // duration: 2,
-      }
+      },
+      "<1"
     )
     .fromTo(
       ".hero__image-container--2",
@@ -377,7 +310,7 @@ imgLoad.on("done", (instance) => {
         opacity: 1,
         x: 0,
         ease: "expo.out",
-        duration: 2.5,
+        duration: 2,
         stagger: 0.3,
       },
       "<+0.2"
@@ -386,13 +319,17 @@ imgLoad.on("done", (instance) => {
 
     // SCENE 3
     // Lines
-    .to(".hero__line", {
-      opacity: 0,
-      x: "-100vw",
-      ease: "circ.in",
-      duration: 1.4,
-      stagger: 0.2,
-    })
+    .to(
+      ".hero__line",
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "circ.in",
+        duration: 1.4,
+        stagger: 0.2,
+      },
+      "<0.3"
+    )
     // Elements 2 Out
     .to(
       ".hero__element-container-2",
@@ -404,7 +341,7 @@ imgLoad.on("done", (instance) => {
         duration: 2.5,
         stagger: 0.3,
       },
-      "<+0.8"
+      "<0.8"
     )
     // Image 2 Out
     .to(
@@ -417,7 +354,7 @@ imgLoad.on("done", (instance) => {
 
         // duration: 2,
       },
-      "<0.2"
+      "<1.2"
     )
     // Word 2 Out
     .to(
@@ -429,7 +366,7 @@ imgLoad.on("done", (instance) => {
         ease: "back.in(0.7)",
         duration: 1.4,
       },
-      "<0.2"
+      "<-0.2"
     )
     // Image 3 In
     .fromTo(
@@ -443,7 +380,8 @@ imgLoad.on("done", (instance) => {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         ease: "circ.out",
         // duration: 2,
-      }
+      },
+      "<1"
     )
     .fromTo(
       ".hero__image-container--3",
@@ -510,13 +448,17 @@ imgLoad.on("done", (instance) => {
 
     // SCENE 4
     // Lines 3 Out
-    .to(".hero__line", {
-      opacity: 0,
-      x: "-100vw",
-      ease: "circ.in",
-      duration: 1.4,
-      stagger: 0.2,
-    })
+    .to(
+      ".hero__line",
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "circ.in",
+        duration: 1.4,
+        stagger: 0.2,
+      },
+      "<0.3"
+    )
     // Elements 3 Out
     .to(
       ".hero__element-container-3",
@@ -541,7 +483,7 @@ imgLoad.on("done", (instance) => {
 
         // duration: 2,
       },
-      "<0.2"
+      "<1.2"
     )
     // Word 3 Out
     .to(
@@ -553,7 +495,7 @@ imgLoad.on("done", (instance) => {
         ease: "back.in(0.7)",
         duration: 1.4,
       },
-      "<0.2"
+      "<-0.2"
     )
     // Image 4 In
     .fromTo(
@@ -567,7 +509,8 @@ imgLoad.on("done", (instance) => {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         ease: "circ.out",
         // duration: 2,
-      }
+      },
+      "<1.2"
     )
     .fromTo(
       ".hero__image-container--4",
@@ -642,19 +585,23 @@ imgLoad.on("done", (instance) => {
         y: "-50vh",
         x: "100vh",
         ease: "expo.in",
-        duration: 2.5,
+        duration: 2,
         stagger: 0.3,
       },
-      "<+0.8"
+      "<+0.5"
     )
     // Lines 4 Out
-    .to(".hero__line", {
-      opacity: 0,
-      x: "-100vw",
-      ease: "circ.in",
-      duration: 1.4,
-      stagger: 0.2,
-    })
+    .to(
+      ".hero__line",
+      {
+        opacity: 0,
+        x: "-100vw",
+        ease: "circ.in",
+        duration: 1.4,
+        stagger: 0.2,
+      },
+      "<0.3"
+    )
 
     // Image 3 Out
     .to(
@@ -667,7 +614,7 @@ imgLoad.on("done", (instance) => {
 
         // duration: 2,
       },
-      "<0.2"
+      "<0.8"
     )
     // Word 3 Out
     .to(
@@ -732,6 +679,7 @@ imgLoad.on("done", (instance) => {
     );
   });
 
+  // Stagger
   gsap.fromTo(
     ".fade-in-stagger",
     {
@@ -752,6 +700,43 @@ imgLoad.on("done", (instance) => {
 
         // end: "600% 50%",
         // toggleActions: "play none restart none",
+      },
+    }
+  );
+
+  // Sustainability
+  gsap.fromTo(
+    ".up",
+    {
+      y: 0,
+    },
+    {
+      y: -100,
+      duration: 3,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: ".sustainability",
+        start: "top 80%",
+        // markers: true,
+        scrub: 3,
+      },
+    }
+  );
+
+  gsap.fromTo(
+    ".down",
+    {
+      y: 0,
+    },
+    {
+      y: 100,
+      duration: 3,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: ".sustainability",
+        start: "top 80%",
+        // markers: true,
+        scrub: 1,
       },
     }
   );
