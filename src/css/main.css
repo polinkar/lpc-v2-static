@@ -503,7 +503,7 @@ a {
       height: 1px;
       background-color: rgba(0, 79, 163, 0.2); }
   .news__image {
-    aspect-ratio: 16/9;
+    aspect-ratio: 10/9;
     object-fit: cover;
     width: 100%; }
   .news__link {
