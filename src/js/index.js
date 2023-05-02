@@ -83,8 +83,6 @@ imgLoad.on("done", (instance) => {
     paused: true,
   });
 
-  // introTimeline.duration(15);
-
   introTimeline
 
     // SCENE 1
@@ -116,9 +114,27 @@ imgLoad.on("done", (instance) => {
         ease: "circ.out",
         duration: 1.4,
         stagger: 0.2,
-        delay: 0.2,
-      }
+        delay: 0.3,
+      },
+      "<.5"
     )
+
+    // Word
+    .fromTo(
+      ".hero__word--lpc-is",
+      {
+        // opacity: 0,
+        x: "100vw",
+      },
+      {
+        // opacity: 1,
+        x: 0,
+        ease: "back.out(0.7)",
+        duration: 1.4,
+      },
+      "<"
+    )
+
     // Elements
     .fromTo(
       ".hero__element-container-1--sphere",
@@ -148,22 +164,6 @@ imgLoad.on("done", (instance) => {
         stagger: 0.3,
       },
       "<+0.2"
-    )
-
-    // Word
-    .fromTo(
-      ".hero__word--lpc-is",
-      {
-        // opacity: 0,
-        x: "100vw",
-      },
-      {
-        // opacity: 1,
-        x: 0,
-        ease: "back.out(0.7)",
-        duration: 1.4,
-      },
-      "<0.2"
     )
 
     // Image Mask

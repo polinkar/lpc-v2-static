@@ -249,6 +249,7 @@ h1 {
   &__line {
     position: absolute;
     height: 2px;
+    will-change: transform;
 
     &--accent {
       background-color: $accent;

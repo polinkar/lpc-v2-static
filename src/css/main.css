@@ -204,7 +204,8 @@ h1 {
     width: 100%; }
   .loader__line {
     position: absolute;
-    height: 2px; }
+    height: 2px;
+    will-change: transform; }
     .loader__line--accent {
       background-color: #82c341;
       width: 100vw; }
