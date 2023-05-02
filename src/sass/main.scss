@@ -85,7 +85,7 @@ $box: 1280px;
 // GLOBAL
 body {
   font-family: "Helvetica";
-  font-weight: 300;
+  font-weight: 400;
   background-color: $gray;
   overflow: hidden;
   color: $black;
@@ -130,7 +130,7 @@ body {
 }
 
 .small-heading {
-  font-size: 39px;
+  font-size: 32px;
   font-weight: 400;
   line-height: 1.2;
 }
@@ -141,7 +141,7 @@ body {
   text-transform: uppercase;
   position: relative;
   // margin-top: 32px;
-  padding: 14px 25px;
+  padding: 14px 0;
   // border-radius: 200px;
   // background: $white;
   font-size: 13px;
@@ -161,7 +161,7 @@ body {
 }
 
 .button {
-  overflow: hidden;
+  // overflow: hidden;
   z-index: 2;
   color: $black;
   display: flex;
@@ -610,6 +610,8 @@ a {
   }
   &__text {
     padding: 12px 0;
+    font-weight: 300;
+    font-size: 39px;
     span {
       font-weight: 500;
     }
@@ -699,12 +701,12 @@ a {
     }
   }
 
-  &__post-title {
-    font-size: 32px;
-    line-height: 1.2;
-    font-weight: 400;
-    color: $black;
-  }
+  // &__post-title {
+  //   font-size: 32px;
+  //   line-height: 1.2;
+  //   font-weight: 400;
+  //   color: $black;
+  // }
 
   // &__text {
   //   font-size: 15px;
